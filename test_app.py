@@ -1,14 +1,15 @@
 from fastapi.testclient import TestClient
 from main import app
-from datetime import datetime
 
-# test to check the correct functioning of the /ping route 
+# test to check the correct functioning of the /ping route
 def test_ping():
     with TestClient(app) as client:
         response = client.get("/ping")
         # asserting the correct response is received
         assert response.status_code == 200
-        assert response.json()["ping"] == "pong" # Changing the syntax due to added timestamp
+        assert response.json() == {"ping": "pong"}
+
+        #assert response.json()["ping"] == "pong" # Changing the syntax due to added timestamp
 
 
 # test to check if Iris Virginica is classified correctly
