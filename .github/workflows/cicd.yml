@@ -20,7 +20,7 @@ jobs:
           pip install -r requirements.txt
       - name: Run pytest
         run: |
-          test_app
+          pytest
   
   # second job to zip the codebase and upload it as an artifact when build succeeds 
   upload_zip:
